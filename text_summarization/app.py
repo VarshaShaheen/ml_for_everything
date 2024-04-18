@@ -26,8 +26,12 @@ def index():
 
 @app.route('/summarize_text', methods=['POST'])
 def summ_text():
-    """Handle text summarization requests."""
     input_text = request.form['text']
+    print("Received text length:", len(input_text))
+    # Display beginning, middle, and end portions of the text
+    print("Start of text:", input_text[:500])  # First 500 characters
+    print("Middle of text:", input_text[len(input_text) // 2 - 250:len(input_text) // 2 + 250])  # Middle 500 characters
+    print("End of text:", input_text[-500:])  # Last 500 characters
     summary = summarize(input_text)
     return render_template('index.html', corrected_text=summary)
 
@@ -63,8 +67,6 @@ def audio_to_text_direct(file_path):
     model_whisper = whisper.load_model("medium.en")
     result = model_whisper.transcribe(file_path)
     return result['text']
-
-
 
 
 if __name__ == '__main__':

@@ -14,7 +14,7 @@
 </nav>
 
 <div class="container">
-    <form action="/summarize_text" method="post" enctype="multipart/form-data">
+    <form action="/summarize_text" method="post">
         <div class="form-group">
             <label for="text">Enter your text</label>
             <textarea name="text" id="text" cols="30" rows="4" class="form-control"></textarea>
@@ -34,7 +34,7 @@
         </div>
         <button type="submit" class="btn btn-primary">Summarize Audio</button>
     </form>
-    <h5>Audio Summary:<br> {{ corrected_file_text }}{{corrected_text}}</h5>
+    <h5>Audio Summary:<br> {{ corrected_file_text }}</h5>
 </div>
 <footer class="text-center">
         <span>
